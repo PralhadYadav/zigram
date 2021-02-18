@@ -55,7 +55,6 @@ export class CocktailsComponent implements OnInit {
   }
 
   loadDashboardData() {
-    this.resetFilterObject();
     this.drinksSrc.getDashboardData().subscribe(res => {
       if (res.drinks) {
         this.drinks = res.drinks

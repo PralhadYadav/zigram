@@ -1,24 +1,7 @@
-/* .text-border {
-    border-bottom: solid 1px grey;
-}
-
-.summary-count {
-    min-height: 100px;
-    background-color: #e9ecef !important;
-    color: #000000!important;
-}
-
-.font-size-12 {
-    font-size: 12px!important;
-} */
-
 .content {
     display: inline;
-    /* margin: 82px auto 32px; */
-    /* padding: 0 16px; */
     max-width: 900px;
     flex-direction: column;
-    /* align-items: center; */
 }
 
 .card-container {
