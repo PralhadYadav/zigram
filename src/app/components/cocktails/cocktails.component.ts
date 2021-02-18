@@ -54,6 +54,19 @@ export class CocktailsComponent implements OnInit {
     }
   }
 
+  resetSearchObject() {
+    this.search = {
+      name: '',
+      Ingredient: ''
+    }
+  }
+
+  reset() {
+    this.resetSearchObject();
+    this.resetFilterObject();
+    this.loadDashboardData();
+  }
+
   loadDashboardData() {
     this.drinksSrc.getDashboardData().subscribe(res => {
       if (res.drinks) {
@@ -78,6 +91,7 @@ export class CocktailsComponent implements OnInit {
   }
 
   filterData(event) {
+    this.resetSearchObject();
     switch (event) {
       case "category":
         let catFilter = this.filter.category;
@@ -114,6 +128,7 @@ export class CocktailsComponent implements OnInit {
   // }
 
   searchByName() {
+    this.resetFilterObject();
     if (this.search.name) {
       this.drinksSrc.searchByName(this.search.name).subscribe(res => {
         if (res) {
@@ -126,6 +141,7 @@ export class CocktailsComponent implements OnInit {
   }
 
   searchByIngredient() {
+    this.resetFilterObject();
     if (this.search.Ingredient) {
       this.drinksSrc.searchByIngredient(this.search.Ingredient).subscribe(res => {
         if (res) {
