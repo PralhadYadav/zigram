@@ -1,0 +1,99 @@
+/* .text-border {
+    border-bottom: solid 1px grey;
+}
+
+.summary-count {
+    min-height: 100px;
+    background-color: #e9ecef !important;
+    color: #000000!important;
+}
+
+.font-size-12 {
+    font-size: 12px!important;
+} */
+
+.content {
+    display: inline;
+    /* margin: 82px auto 32px; */
+    /* padding: 0 16px; */
+    max-width: 900px;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.card-container {
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-top: 16px;
+}
+
+.img-thumbnil {
+    display: block;
+    height: 120px;
+    width: 180px;
+    margin: auto;
+}
+
+label {
+    font-size: 14px;
+    margin: 5px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: cornflowerblue;
+    display: block;
+}
+
+.filters {
+    /* display: inline-block; */
+    text-align: right;
+    padding: 20px;
+    margin: 20px;
+}
+
+.filter-input {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+section {
+    display: table;
+}
+
+.mat-button.mat-primary {
+    color: white;
+    background-color: #673ab7;
+    margin: 10px;
+}
+
+.drinks-form {
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.drinks-full-width {
+    width: 100%;
+}
+
+.drinks-filters {
+    text-align: left;
+}
+
+.drinks-filters mat-form-field {
+    width: 200px;
+}
+
+mat-spinner {
+    position: fixed;
+    z-index: 999999999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

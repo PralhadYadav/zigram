@@ -1,0 +1,98 @@
+<div>
+    <div class="filters">
+        <div>
+            <form class="drinks-form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="drinks-full-width">
+                            <mat-label>Search Cocktail Name</mat-label>
+                            <input matInput [(ngModel)]="search.name" [ngModelOptions]="{standalone: true}" (keydown.enter)="searchByName()" (change)="searchByName()" placeholder="Ex. Almeria">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="drinks-full-width">
+                            <mat-label>Search Ingredient Name</mat-label>
+                            <input [(ngModel)]="search.Ingredient" [ngModelOptions]="{standalone: true}" (keydown.enter)="searchByIngredient()" (change)="searchByIngredient()" matInput placeholder="Ex. Vodka">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4 drinks-filters">
+                        <!-- <button mat-button color="primary">Search</button> -->
+                        <button mat-button color="primary" (click)="getPopularDrinks()">Most Popular</button>
+                        <button mat-button color="primary" (click)="getLatestDrinks()">Most latest</button>
+                        <button mat-button color="primary" (click)="loadDashboardData()">Reset</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 drinks-filters">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Category</mat-label>
+                            <mat-select [(ngModel)]="filter.category" (ngModelChange)="filterData('category')" [ngModelOptions]="{standalone: true}">
+                                <mat-option *ngFor="let category of categoryFilters" [value]="category.strCategory">{{category.strCategory}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2 drinks-filters">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Glasses</mat-label>
+                            <mat-select [(ngModel)]="filter.glasses" (ngModelChange)="filterData('glass')" [ngModelOptions]="{standalone: true}">
+                                <mat-option *ngFor="let glass of glassesFilters" [value]="glass.strGlass">{{glass.strGlass}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2 drinks-filters">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ingredients</mat-label>
+                            <mat-select [(ngModel)]="filter.ingrediant" (ngModelChange)="filterData('ingrediant')" [ngModelOptions]="{standalone: true}">
+                                <mat-option *ngFor="let ingrediant of ingredientsFilters" [value]="ingrediant.strIngredient1">{{ingrediant.strIngredient1}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2 drinks-filters">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Alcoholic</mat-label>
+                            <mat-select [(ngModel)]="filter.alcoholic" (ngModelChange)="filterData('alcoholic')" [ngModelOptions]="{standalone: true}">
+                                <mat-option *ngFor="let alcoholic of alcoholicFilters" [value]="alcoholic.strAlcoholic">{{alcoholic.strAlcoholic}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="col-md-2"></div> -->
+                    <div class="col-md-2 drinks-filters">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Sort By</mat-label>
+                            <mat-select (selectionChange)="sortData($event.value)">
+                                <mat-option value="" disabled>Sort</mat-option>
+                                <mat-option value="strCategory">Category</mat-option>
+                                <mat-option value="strDrink">Name</mat-option>
+                                <mat-option value="ingrediants">Ingredient</mat-option>
+                                <mat-option value="strAlcoholic">Alcoholic</mat-option>
+                                <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+    <div *ngIf="showLoader" class=loader>
+        <mat-spinner></mat-spinner>
+    </div>
+    <mat-card>
+        <mat-card-content>
+            <div *ngIf="drinks.length > 0">
+                <div *ngFor="let drink of drinks" class="content col-md-2" role="main">
+                    <div class="card-container">
+                        <div class="card">
+                            <img src={{drink.strDrinkThumb}} alt="{{strDrink}}" class="img-thumbnil" />
+                            <label>Name - {{drink.strDrink}}</label>
+                            <label>Category - {{drink.strCategory}}</label>
+                            <label>Alcoholic - {{drink.strAlcoholic}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
